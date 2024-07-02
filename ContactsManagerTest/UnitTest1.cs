@@ -8,7 +8,7 @@ namespace ContactsManagerTest
 {
     public class ProgramTest
     {
-        // Test for adding a new contact
+        
         [Fact]
         public void AddContact_ReturnAddSuccessMessage_ContactAdded()
         {

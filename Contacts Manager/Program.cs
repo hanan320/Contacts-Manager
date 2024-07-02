@@ -76,18 +76,23 @@ namespace ContactsManager
             if (string.IsNullOrWhiteSpace(userName) || string.IsNullOrWhiteSpace(phoneNumber))
             {
                 Console.Clear();
-                return "\n Invalid name or phone number. Contact not added. \n";
+                Console.WriteLine("\n");
+                return "Invalid name or phone number. Contact not added. \n";
             }
 
             if (Contacts.Exists(c => c.Name.Equals(userName, StringComparison.OrdinalIgnoreCase)))
             {
-                return $"\n Contact with name '{userName}' already exists.";
+                Console.WriteLine("\n");
+                return $"Contact with name '{userName}' already exists.";
             }
             else
             {
+                Console.WriteLine("\n");
                 Contacts.Add(new Contact { Name = userName, PhoneNumber = phoneNumber });
-                return $"\n Contact '{userName}' added successfully.";
+                return $"Contact '{userName}' added successfully.";
             }
+
+
         }
 
         public static string RemoveContact(string name)
@@ -95,6 +100,7 @@ namespace ContactsManager
             if (string.IsNullOrWhiteSpace(name))
             {
                 Console.Clear();
+                Console.WriteLine("\n");
                 return "Invalid contact name.";
             }
 
@@ -103,7 +109,8 @@ namespace ContactsManager
             if (contactToRemove != null)
             {
                 Contacts.Remove(contactToRemove);
-                return $"\n Contact '{name}' removed successfully.";
+                Console.WriteLine("\n");
+                return $"Contact '{name}' removed successfully.";
             }
             else
             {
@@ -124,7 +131,8 @@ namespace ContactsManager
             {
                 foreach (var contact in Contacts)
                 {
-                    Console.WriteLine($"\n Name: {contact.Name}, Phone Number: {contact.PhoneNumber}");
+                    Console.WriteLine("\n");
+                    Console.WriteLine($"Name: {contact.Name}, Phone Number: {contact.PhoneNumber}");
                 }
             }
         }
